@@ -1,0 +1,172 @@
+java -jar  /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--region="us-east4" \
+--stagingLocation="gs://akumin-dev-dataflow/staging" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--project="master-repo-aku-project-322817" \
+--templateLocation="gs://akumin-dev-dataflow/dataflow-templates/latest/dicom-fhir-convertor-template-v35" \
+--enableStreamingEngine=true  \
+--autoscalingAlgorithm="THROUGHPUT_BASED" \
+--maxNumWorkers=1 \
+--numWorkers=1 \
+--experiments="enable_stackdriver_agent_metrics" \
+--numberOfWorkerHarnessThreads=10 \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com" \
+--subnetwork="https://www.googleapis.com/compute/v1/projects/master-repo-aku-project-322817/regions/us-east4/subnetworks/service-plane" \
+--network="master-repo-vpc" \
+--usePublicIps=false \
+--dataflowServiceOptions="enable_secure_boot"
+
+java -jar /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--project="master-repo-aku-project-322817" \
+--region="us-east4" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com"
+
+
+gcloud dataflow jobs run hl7-fhir-convertor-dfjob-3029292328328088398 \
+        --gcs-location gs://akumin-dev-dataflow/dataflow-templates/latest/hl7-fhir-convertor-template \
+        --region us-east4 \
+        --service-account-email svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com
+        
+        
+Itelij - config cloud
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" --readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" --writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" --mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" --mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" --fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" --runner="DataflowRunner" --project="master-repo-aku-project-322817" --region="us-east4"
+
+Itelij - config local hl7 to FHIR
+ --pubSubSubscription="projects/bamboo-storm-312615/subscriptions/hl7subs" --readErrorPath="FHIRDATA/error/read/read_error.txt" --writeErrorPath="FHIRDATA/error/write/write_error.txt" --mappingErrorPath="FHIRDATA/mapping/mapping_error.txt" --mappingPath="/home/amit/Documents/My-Work/Code/Official/akumin/healthcare-data-harmonization-dataflow/FHIRDATA/mapping_configs/hl7v2_fhir_r4/configurations/main.textproto" --fhirStore="projects/bamboo-storm-312615/locations/us-central1/datasets/dataset/fhirStores/fhirstore" --runner=DirectRunner --project="bamboo-storm-312615" 
+ 
+Itelij - config local DISCOM to FHIR  
+--pubSubSubscription="projects/bamboo-storm-312615/subscriptions/dicomSubs" --readErrorPath="FHIRDATA/error/read/dicom_read_error.txt" --writeErrorPath="FHIRDATA/error/write/dicom_write_error.txt" --mappingErrorPath="FHIRDATA/error/mapping/dicom_mapping_error.txt" --mappingPath="/home/amit/Documents/My-Work/Code/Official/akumin/healthcare-data-harmonization-dataflow/FHIRDATA/mapping_configs/dicom_fhir_r4/configurations/main.textproto"  --fhirStore="projects/bamboo-storm-312615/locations/us-central1/datasets/dataset/fhirStores/fhirstore" --runner="DirectRunner" --project="bamboo-storm-312615" --region="us-east4"
+
+
+java -jar /home/amit/Documents/My-Work/Code/Official/akumin/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/bamboo-storm-312615/subscriptions/dicomSubs" --readErrorPath="FHIRDATA/error/read/dicom_read_error.txt" --writeErrorPath="FHIRDATA/error/write/dicom_write_error.txt" --mappingErrorPath="FHIRDATA/error/mapping/dicom_mapping_error.txt" --mappingPath="/home/amit/Documents/My-Work/Code/Official/akumin/healthcare-data-harmonization-dataflow/FHIRDATA/mapping_configs/dicom_fhir_r4/configurations/main.textproto"  --fhirStore="projects/bamboo-storm-312615/locations/us-central1/datasets/dataset/fhirStores/fhirstore" --runner="DirectRunner" --project="bamboo-storm-312615" --region="us-east4"
+
+--pubSubSubscription="projects/${PROJECT}/subscriptions/${SUBSCRIPTION}" \
+                                             --readErrorPath="gs://${ERROR_BUCKET}/read/read_error.txt" \
+                                             --writeErrorPath="gs://${ERROR_BUCKET}/write/write_error.txt" \
+                                             --mappingErrorPath="gs://${ERROR_BUCKET}/mapping/mapping_error.txt" \
+                                             --mappingPath="gs://${MAPPING_BUCKET}/main.textproto" \
+                                             --fhirStore="projects/${PROJECT}/locations/${LOCATION}/datasets/${DATASET}/fhirStores/${FHIRSTORE}" \
+                                             --runner=DataflowRunner \
+                                             --project=${PROJECT}
+                                             
+                                             
+Fetch sample images :-
+gsutil -m -u master-repo-aku-project-322817 ls gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom
+gsutil -m -u master-repo-aku-project-322817 cp -r gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom
+
+
+                                             
+Pushing dicom image to dicome store :-
+ref --https://cloud.google.com/healthcare-api/docs/how-tos/dicomweb
+
+Post a dicom image to store
+curl -X POST \
+    -H "Content-Type: application/dicom" \
+    -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+    https://healthcare.googleapis.com/v1/projects/bamboo-storm-312615/locations/us-central1/datasets/dataset/dicomStores/dicomstore/dicomWeb/studies \
+    --data-binary @1.3.6.1.4.1.14519.5.2.1.6279.6001.162069022647548715011363429141.dcm
+Getting a dicom instance list :-
+curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     "https://healthcare.googleapis.com/v1/projects/bamboo-storm-312615/locations/us-central1/datasets/dataset/dicomStores/dicomstore/dicomWeb/instances"
+
+_____________________________________ROUGH_________________________________________
+DISCOM to FHIR 
+java -jar  /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--region="us-east4" \
+--stagingLocation="gs://akumin-dev-dataflow/staging" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--project="master-repo-aku-project-322817" \
+--templateLocation="gs://akumin-dev-dataflow/dataflow-templates/latest/dicom-fhir-convertor-template-v35" \
+--enableStreamingEngine=true  \
+--autoscalingAlgorithm="THROUGHPUT_BASED" \
+--maxNumWorkers=1 \
+--numWorkers=1 \
+--experiments="enable_stackdriver_agent_metrics" \
+--numberOfWorkerHarnessThreads=10 \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com" \
+--subnetwork="https://www.googleapis.com/compute/v1/projects/master-repo-aku-project-322817/regions/us-east4/subnetworks/service-plane" \
+--network="master-repo-vpc" \
+--usePublicIps=false \
+--dataflowServiceOptions="enable_secure_boot"
+
+HL17 to FHIR
+java -jar  /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-hl7-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/hl7_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/hl7_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/hl7_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/hl7v2_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--region="us-east4" \
+--stagingLocation="gs://akumin-dev-dataflow/staging" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--project="master-repo-aku-project-322817" \
+--templateLocation="gs://akumin-dev-dataflow/dataflow-templates/latest/hl7-fhir-convertor-template" \
+--enableStreamingEngine=true \
+--autoscalingAlgorithm="THROUGHPUT_BASED" \
+--numWorkers=1 \
+--maxNumWorkers=1 \
+--numberOfWorkerHarnessThreads=10 \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com" \
+--subnetwork="https://www.googleapis.com/compute/v1/projects/master-repo-aku-project-322817/regions/us-east4/subnetworks/service-plane" \
+--network="master-repo-vpc" \
+--usePublicIps=false \
+--dataflowServiceOptions="enable_secure_boot" \
+--update
+
+
+526388       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.100300497519342586615785847561.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.105770953194261421252296863867.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.106577093425221169770577416679.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.107193732797338019627138114012.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.107474466980639942253168518636.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.107858857578151547428651560769.dcm
+526392       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.107907359169276407184686051423.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.107912371950621731199089078260.dcm
+526388       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.109367185532061825819830638073.dcm
+526388       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.110325962021297851607563572354.dcm
+526392       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.111132928955535414925170127041.dcm
+526388       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.112204483737371412305956649080.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.115262986836202724801252482248.dcm
+526392       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.115856940078090336035166152782.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.116153883298424026285983446202.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.116521130664804746962934662959.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.116539883796183800336796038290.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.117320215773214129729031529580.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.118186977258496220670115714472.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.119171181579853285970006575017.dcm
+526388       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.119743262233985428154759267909.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.120093983816124848612838965423.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.120783709535184757863264024374.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.120839954555299935067998151403.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.121267417750638826041069580569.dcm
+526394       gs://gcs-public-data--healthcare-tcia-lidc-idri/dicom/1.3.6.1.4.1.14519.5.2.1.6279.6001.300409677036863686976674785893/1.3.6.1.4.1.14519.5.2.1.6279.6001.205993750485568250373835565680/1.3.6.1.4.1.14519.5.2.1.6279.6001.122420726709488831678185262211.dcm
+
+
+
+

@@ -1,0 +1,117 @@
+{
+  "group": [
+    {
+      "element": [
+        {
+          "code": "N",
+          "display": "Annulled",
+          "target": [
+            {
+              "code": "A",
+              "display": "Annulled",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "D",
+          "display": "Divorced",
+          "target": [
+            {
+              "code": "D",
+              "display": "Divorced",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "I",
+          "display": "Interlocutory",
+          "target": [
+            {
+              "code": "I",
+              "display": "Interlocutory",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "E",
+          "display": "Legally Separated",
+          "target": [
+            {
+              "code": "L",
+              "display": "Legally Separated",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "M",
+          "display": "Married",
+          "target": [
+            {
+              "code": "M",
+              "display": "Married",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "S",
+          "display": "Single",
+          "target": [
+            {
+              "code": "S",
+              "display": "Never Married",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "T",
+          "display": "Domestic Partner",
+          "target": [
+            {
+              "code": "T",
+              "display": "Domestic Partner",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "B",
+          "display": "Unmarried",
+          "target": [
+            {
+              "code": "U",
+              "display": "Unmarried",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "U",
+          "display": "Unknown",
+          "target": [
+            {
+              "code": "UNK",
+              "display": "Unknown",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ],
+      "source": "HL70010",
+      "target": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+      "unmapped": {
+        "mode": "fixed",
+        "code": "UNK",
+        "display": "Unknown"
+      }
+    }
+  ],
+  "id": "MaritalStatus",
+  "resourceType": "ConceptMap",
+  "version": "v1"
+}

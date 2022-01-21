@@ -1,0 +1,3 @@
+build_deps_local.sh
+build/*
+FHIRDATA/IMAGES/*

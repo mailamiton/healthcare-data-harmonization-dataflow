@@ -1,0 +1,91 @@
+java -jar  /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--region="us-east4" \
+--stagingLocation="gs://akumin-dev-dataflow/staging" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--project="master-repo-aku-project-322817" \
+--templateLocation="gs://akumin-dev-dataflow/dataflow-templates/latest/dicom-fhir-convertor-template-v35" \
+--enableStreamingEngine=true  \
+--autoscalingAlgorithm="THROUGHPUT_BASED" \
+--maxNumWorkers=1 \
+--numWorkers=1 \
+--experiments="enable_stackdriver_agent_metrics" \
+--numberOfWorkerHarnessThreads=10 \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com" \
+--subnetwork="https://www.googleapis.com/compute/v1/projects/master-repo-aku-project-322817/regions/us-east4/subnetworks/service-plane" \
+--network="master-repo-vpc" \
+--usePublicIps=false \
+--dataflowServiceOptions="enable_secure_boot"
+
+java -jar /app/healthcare-data-harmonization-dataflow/build/libs/converter-0.1.0-all.jar \
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" \
+--readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" \
+--writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" \
+--mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" \
+--mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" \
+--runner="DataflowRunner"  \
+--project="master-repo-aku-project-322817" \
+--region="us-east4" \
+--gcpTempLocation="gs://akumin-dev-dataflow/temp" \
+--serviceAccount="svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com"
+
+
+gcloud dataflow jobs run hl7-fhir-convertor-dfjob-3029292328328088398 \
+        --gcs-location gs://akumin-dev-dataflow/dataflow-templates/latest/hl7-fhir-convertor-template \
+        --region us-east4 \
+        --service-account-email svc-dataflow-runner@master-repo-aku-project-322817.iam.gserviceaccount.com
+        
+        
+Itelij - config cloud
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" --readErrorPath="gs://akumin-dev-dataflow/error/read/dicom_read_error.txt" --writeErrorPath="gs://akumin-dev-dataflow/error/write/dicom_write_error.txt" --mappingErrorPath="gs://akumin-dev-dataflow/error/mapping/dicom_mapping_error.txt" --mappingPath="gs://aku-dev-mapping/mapping_configs/dicom_fhir_r4/configurations/main.textproto" --fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" --runner="DataflowRunner" --project="master-repo-aku-project-322817" --region="us-east4"
+
+Itelij - config local
+--pubSubSubscription="projects/master-repo-aku-project-322817/subscriptions/aku-test-dicom-notify-sub" --readErrorPath="FHIRDATA/error/read/dicom_read_error.txt" --writeErrorPath="FHIRDATA/error/write/dicom_write_error.txt" --mappingErrorPath="FHIRDATA/error/mapping/dicom_mapping_error.txt" --mappingPath="FHIRDATA/mapping_configs/dicom_fhir_r4/configurations/main.textproto" --fhirStore="projects/master-repo-aku-project-322817/locations/us-east4/datasets/test-dataset/fhirStores/aku-test-fhir-datastore" --runner="DirectRunner" --project="master-repo-aku-project-322817" --region="us-east4"
+
+Itelij - config local project -- amit
+--pubSubSubscription="projects/rp-fhirtest/subscriptions/hl7subscription" --readErrorPath="FHIRDATA/error/read/dicom_read_error.txt" --writeErrorPath="FHIRDATA/error/write/dicom_write_error.txt" --mappingErrorPath="FHIRDATA/error/mapping/dicom_mapping_error.txt" --mappingPath="FHIRDATA/mapping_configs/dicom_fhir_r4/configurations/main.textproto" --fhirStore="projects/rp-fhirtest/locations/us-east4/datasets/datastore/fhirStores/fhirstore" --runner="DirectRunner" --project="rp-fhirtest" --region="us-east4"
+
+Itelij - config local project -- ramu
+--pubSubSubscription="projects/rp-fhirtest/subscriptions/hl7subscription" --readErrorPath="FHIRDATA/error/read/dicom_read_error.txt" --writeErrorPath="FHIRDATA/error/write/dicom_write_error.txt" --mappingErrorPath="FHIRDATA/error/mapping/dicom_mapping_error.txt" --mappingPath="FHIRDATA/mapping_configs/dicom_fhir_r4/configurations/main.textproto" --fhirStore="projects/rp-fhirtest/locations/us-east4/datasets/datastore/fhirStores/fhirstore" --runner="DirectRunner" --project="rp-fhirtest" --region="us-east4"
+
+
+
+_____________________________________ROUGH_________________________________________
+java -jar  ~/healthcare-data-harmonization-dataflow/build/libs/hl7-fhir-converter.jar \
+--pubSubSubscription="projects/rp-fhirtest/subscriptions/hl7subscription" \
+--readErrorPath="gs://rp-dataflow/error/read/rp_hl7_read_error.txt" \
+--writeErrorPath="gs://rp-dataflow/error/write/rp_hl7_write_error.txt" \
+--mappingErrorPath="gs://rp-dataflow/error/mapping/rp_hl7_mapping_error.txt" \
+--mappingPath="gs://rp-dataflow/mapping_configs/hl7v2_fhir_r4/configurations/main.textproto" \
+--fhirStore="projects/rp-fhirtest/locations/us-east4/datasets/datastore/fhirStores/fhirstore" \
+--runner="DataflowRunner"  \
+--region="us-east4" \
+--stagingLocation="gs://rp-dataflow/staging" \
+--gcpTempLocation="gs://rp-dataflow/temp" \
+--project="rp-fhirtest" \
+--templateLocation="gs://rp-dataflow/dataflow-templates/latest/hl7-fhir-convertor-template" \
+--autoscalingAlgorithm="THROUGHPUT_BASED" \
+--numWorkers=1 \
+--maxNumWorkers=1 \
+--numberOfWorkerHarnessThreads=10 \
+--serviceAccount="rp-sa-ap@rp-fhirtest.iam.gserviceaccount.com" \
+--subnetwork="https://www.googleapis.com/compute/v1/projects/rp-fhirtest/regions/us-east4/subnetworks/rp-east-sn" \
+--network="rpvpc" \
+--streaming=true \
+--usePublicIps=false \
+--enableStreamingEngine=true \
+--dataflowServiceOptions="enable_secure_boot" 
+
+
+
+
+
+
+

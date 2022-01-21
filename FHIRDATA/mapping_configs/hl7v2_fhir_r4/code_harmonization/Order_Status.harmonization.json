@@ -1,0 +1,117 @@
+{
+  "group": [
+    {
+      "element": [
+        {
+          "code": "A",
+          "display": "A",
+          "target": [
+            {
+              "code": "active",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "CA",
+          "display": "CA",
+          "target": [
+            {
+              "code": "revoked",
+              "display": "Revoked",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "CM",
+          "display": "CM",
+          "target": [
+            {
+              "code": "completed",
+              "display": "Completed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "DC",
+          "display": "DC",
+          "target": [
+            {
+              "code": "revoked",
+              "display": "Revoked",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "ER",
+          "display": "ER",
+          "target": [
+            {
+              "code": "entered-in-error",
+              "display": "Entered in Error",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "HD",
+          "display": "HD",
+          "target": [
+            {
+              "code": "on-hold",
+              "display": "On Hold",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "IP",
+          "display": "IP",
+          "target": [
+            {
+              "code": "active",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "RP",
+          "display": "RP",
+          "target": [
+            {
+              "code": "revoked",
+              "display": "Revoked",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "SC",
+          "display": "SC",
+          "target": [
+            {
+              "code": "active",
+              "display": "Active",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ],
+      "source": "HL70110",
+      "target": "http://hl7.org/fhir/request-status",
+      "unmapped": {
+        "mode": "fixed",
+        "code": "unknown",
+        "display": "Unknown"
+      }
+    }
+  ],
+  "id": "Order_Status",
+  "resourceType": "ConceptMap",
+  "version": "v1"
+}

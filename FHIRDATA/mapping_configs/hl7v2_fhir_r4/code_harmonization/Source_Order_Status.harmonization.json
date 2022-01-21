@@ -1,0 +1,117 @@
+{
+  "group": [
+    {
+      "element": [
+        {
+          "code": "A",
+          "display": "A",
+          "target": [
+            {
+              "code": "A",
+              "display": "Some, but not all, results available",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "CA",
+          "display": "CA",
+          "target": [
+            {
+              "code": "CA",
+              "display": "Order was canceled",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "CM",
+          "display": "CM",
+          "target": [
+            {
+              "code": "CM",
+              "display": "Order is completed",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "DC",
+          "display": "DC",
+          "target": [
+            {
+              "code": "DC",
+              "display": "Order was discontinued",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "ER",
+          "display": "ER",
+          "target": [
+            {
+              "code": "ER",
+              "display": "Error, order not found",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "HD",
+          "display": "HD",
+          "target": [
+            {
+              "code": "HD",
+              "display": "Order is on hold",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "IP",
+          "display": "IP",
+          "target": [
+            {
+              "code": "IP",
+              "display": "In process, unspecified",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "RP",
+          "display": "RP",
+          "target": [
+            {
+              "code": "RP",
+              "display": "Order has been replaced",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "SC",
+          "display": "SC",
+          "target": [
+            {
+              "code": "SC",
+              "display": "In process, scheduled",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ],
+      "source": "HL70120",
+      "target": "hl7-source",
+      "unmapped": {
+        "mode": "fixed",
+        "code": "unknown",
+        "display": "Unknown"
+      }
+    }
+  ],
+  "id": "Source_Order_Status",
+  "resourceType": "ConceptMap",
+  "version": "v1"
+}
